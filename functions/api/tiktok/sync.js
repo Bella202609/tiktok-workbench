@@ -1,0 +1,1 @@
+export async function onRequestPost({request,env}){if(!env.DB)return Response.json({ok:false,error:'D1 binding missing'},{status:500});const body=await request.json().catch(()=>({}));return Response.json({ok:true,status:'queued',shop_region:body.shop_region||'FR',message:'Sync job queued'})}
