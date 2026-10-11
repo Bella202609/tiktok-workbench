@@ -1,0 +1,1 @@
+export async function onRequestGet({request}){const u=new URL(request.url);const code=u.searchParams.get('code');if(!code)return Response.json({ok:false,error:'missing_code'},{status:400});return Response.json({ok:true,message:'授权码已接收',shop_region:u.searchParams.get('shop_region')||null,received_at:new Date().toISOString()})}
